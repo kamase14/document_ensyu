@@ -2,19 +2,19 @@
 
 \begin{document}
  
-  \begin{equation}
+ 
+ \begin{equation}
   x^2 - 2x + 1 = 0
  \end{equation}
- 
-  \begin{eqnarray}
+
+ \begin{eqnarray}
   x^2 - 2x + 1 & = & 0 \\
   (x - 1)^2 & = & 0
  \end{eqnarray}
  
-  \begin{equation}
+ \begin{equation}
   e^{i\pi} + 1 =  0
  \end{equation}
- 
  
  \begin{equation}
   a_n  =  n!\sum_{k=2}^n \frac{(-1)^k}{k!}
@@ -37,9 +37,6 @@
   \lim_{n\rightarrow0} \frac{e^h -1}{h} = 1
  \end{equation}
 
- \begin{equation}
-  F(s) = \int_0^\infty f(x)e^{-st}dt
- \end{equation}
 
 
 
