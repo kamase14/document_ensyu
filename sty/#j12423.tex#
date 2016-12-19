@@ -1,0 +1,60 @@
+\documentclass{jarticle}
+
+\usepackage{proceeding}
+\usepackage{url}
+
+\makeatletter
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \iftdir\sbox\@tempboxa{#1\hskip1zw#2}%
+    \else\sbox\@tempboxa{#1~ #2}%
+  \fi
+  \ifdim \wd\@tempboxa >\hsize
+    \iftdir #1\hskip1zw#2\relax\par
+    \else #1~ #2\relax\par\fi
+  \else
+  \global \@minipagefalse
+  \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+\fi
+\vskip\belowcaptionskip}
+\makeatother
+
+\begin{document}
+
+\pagestyle{empty}
+
+\date{}
+\title{センサネットワークにおける故障したノードの発見手法の提案}
+\author{12-423 田中 寿明}
+\maketitle
+
+\section{はじめに}
+近年、無線技術を応用したセンサネットワーク技術が目覚ましく発展し、防犯・防災、医療・福祉等、幅広い分野での応用が見当されている。米国のスマートダストプロジェクトを始めとし、わが国でもユビキタス情報社会を目指した国家プロジェクト「u-japan」の一環でセンサネットワークの応用に関する研究会も実施されている。\cite{iino}
+
+%% 次はここから書く
+
+
+
+今回、センサネットワークにおいて故障したノードを発見するに際し、必要となる技術のまとめを行う\cite{shimosaka}。
+
+\section{センサネットワークを実現する上で使われる技術}
+センサネットワークを構築するにあたって利用されている通信規格の一つとして、zigbeeが挙げられる。
+転送距離が短く、通信速度も遅いが消費電力が少なく安価であるという性質を持つ。
+また、センサノードが互いの位置を推定する際の手法としては、実環境で実験を行い、得られたデータから距離と受信電波強度の関係を確率モデル化することで、
+推定位置を仮定した時にその位置における電波強度が、基準となるノードから得られる電波の強度となる確率を計算するものや、基準となるノードを適当な位置に配置し、
+、屋内の三次元座標を複数のポイントから測定し、新たに得られた信号強度と事前に収集したデータを照らし合わせて現在位置を特定するものなど、様々なものがある。
+
+一方、空間を連続的な三次元空間ではなく、離散的にグリッドで表現して仕切り毎の電波強度に関する分布を用意したうえで、位置推定結果を事後確率として計算する手法がある。
+この考え方には、基準となる端末や、計測地点の正確な三次元座標を計測する必要がなく、基準となる端末の位置に依存しないため、センサノードをランダムに配置した場合でも
+容易に位置の特定が行える、という利点がある。
+
+
+  \begin{thebibliography}{9}
+  \bibitem{shimosaka} 下坂　正倫,後迫　弘明,森　　武俊,野口　博史,佐藤　知正 ``位置推定可能なZigBeeセンシングネットワークの構築'',ロボティクス・メカトロニクス講演会講演概要集,1A1-D15,pp.1-4,2008.
+%  \bibitem{ono} 小野　昌之,福井　潔,柳原　健太郎,福永　茂,原　晋介,北山　研一 ``無線を使った位置検出'',沖テクニカルレビュー,/第204号Vol.72 No4 Oct.,2005.
+  \bibitem{iino}飯野　穣,畑中　健志,藤田　政之 ``センサネットワークと制御理論'',計測自動制御学会,\url{http://www.fl.ctrl.titech.ac.jp/paper/2008/IiHaFuSICE08.pdf} ,Aug.,2008.
+　\end{thebibliography}
+
+　
+\end{document}
+
