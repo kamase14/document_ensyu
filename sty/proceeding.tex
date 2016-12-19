@@ -1,0 +1,181 @@
+\documentclass[twocolumn]{jarticle}
+
+\usepackage{proceeding}
+
+\makeatletter
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \iftdir\sbox\@tempboxa{#1\hskip1zw#2}%
+    \else\sbox\@tempboxa{#1~ #2}%
+  \fi
+  \ifdim \wd\@tempboxa >\hsize
+    \iftdir #1\hskip1zw#2\relax\par
+    \else #1~ #2\relax\par\fi
+  \else
+  \global \@minipagefalse
+  \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+\fi
+\vskip\belowcaptionskip}
+\makeatother
+
+\begin{document}
+
+\pagestyle{empty}
+
+\date{J--33}
+\title{時系列信号解析ソフトの作成}
+\author{池田 貴弘, 池野 将之}
+\maketitle
+
+
+%%●●●●●●●●●●●●●●●
+\section{まえがき}
+
+文書領域の余白は，上28mm，下24mm，左右ともに20mm 空ける．
+
+発表タイトルは14pt でセンタリングする．
+%
+フォントは，ゴシック体で，太字とする．
+%
+発表タイトルの下に10pt で1 行分空ける．
+
+発表者氏名は右端によせる．
+%
+発表者氏名の下に10pt で1 行分空ける．
+
+本文領域は2 段組とし，段と段の間は8mm 空けることとする．
+
+本文の章は「1. まえがき」から始めることとする．
+%
+また，本文の文章は10pt で記述することとし，行間は1.5mm とする．
+
+ページ番号（フッタ）は用いないこと．
+%
+通し番号（「J-1」など）は後から印刷するので記述しなくてよい．
+
+
+%%●●●●●●●●●●●●●●●
+\section{研究概要}
+\begin{equation}
+\label{eq1}
+ \varphi( \tau ) = \sum_{k = 0}^{N - 1} \left \{ X(k) - \mu  \right
+  \} \left \{ X(k + \tau ) - \mu  \right \} 
+\end{equation}
+章見出しは12pt，節見出しは11pt，項見出しは10pt を基本とする．
+%
+章番号とピリオドは半角のCentury フォントを用いることとし，ピリオドの後に
+半角スペースを置いてから見出し語を書くこととする．
+%
+1.2 節がないのに，1.1 節を設けるのは論理的におかしいので注意すること．
+
+英数字はいずれも半角文字を用いること．
+
+図のキャプションは図の下に表記すること．
+%
+逆に，表のキャプションは表の上に表記すること．
+%
+いずれのキャプションも，図番号や表番号と説明文の間にコロン（:）を置くこ
+ととし，意味のある見出しとなるように心がける．
+%
+当然，図番号や表番号は本文中で引用しなければならない．
+
+\begin{figure}[htbp]
+ \begin{center}
+  \includegraphics{test.eps}
+  \caption{テスト画像}
+  \label{fig:test}
+ \end{center}
+\end{figure}
+
+\section{ナイル川水位の変動}
+
+ナイル川水位の変動を図\ref{fig1}に示す。
+
+\begin{figure}[h]
+\label{fig1}
+\includegraphics*{nile.eps}
+\caption{ナイル川の水位のグラフ}
+\end{figure}
+
+\section{ナイル川水位の自己相関}
+\begin{equation}
+\label{eq1}
+ \varphi( \tau ) = \sum_{k = 0}^{N - 1} \left \{ X(k) - \mu  \right
+  \} \left \{ X(k + \tau ) - \mu  \right \} 
+\end{equation}
+
+\begin{equation}
+\label{eq2}
+ \phi( \tau ) = \frac{\varphi( \tau )}{\varphi( 0 )}
+\end{equation}
+
+ナイル川水位の自己相関を式(\ref{eq2})を使って求めた。
+\ref{fig2}に
+\begin{figure}[ht]
+\label{fig2}
+\includegraphics*{nile_ACF_org.eps}
+\caption{ナイル川の自己相関グラフ}
+\end{figure}
+
+ナイル川水位の自己相関グラフ図\ref{fig1}を横軸log、縦軸logでとったグラフを\ref{fig3}に示す。
+
+\begin{figure}[b]
+\label{fig3}
+\includegraphics*{nile_ACF.eps}
+\caption{ナイル川の自己相関のloglogグラフ}
+\end{figure}
+
+
+%%●●●●●●●●●●●●●●●
+\section{まとめ}
+
+参考文献の見出しには章番号は振らないことに注意する．
+%
+当然，参考文献で挙げた文献は，本文中で必ず引用すること．
+
+参考文献は9pt とし，行間は1mm で列挙する．
+%
+文献名を囲む記号の開始は「``」であり，「''」ではない．
+%
+向きに注意して確認を怠らないようにする．
+
+各項目の区切りは半角のカンマとスペースとし，最後は半角のピリオドとする．
+
+複数の文献を同時に引用するとき，2つまでは半角カンマで区切る\cite{lit:一
+朗, lit:太郎}．
+%
+3つ以上連続する場合は，ハイフンで最初と最後の文献番号を示す\cite{lit:華子,
+lit:花子, lit:次郎}．
+
+
+\begin{thebibliography}{9}
+ \renewcommand{\baselinestretch}{1.0}
+ \small
+ \bibitem{lit:一朗}
+	 情報 一朗,
+	 ``見出しに章番号をつけない'',
+	 関東高専学会学会誌, Vol.5, pp.72-73, March 2004.
+
+ \bibitem{lit:太郎}
+	 高専 太郎,
+	 ``参考文献は9pt，行間1mm で記述する'',
+	 日本高専学会学会誌, Vol.19, pp.88-91, July 2005.
+
+ \bibitem{lit:華子}
+	 工学 華子,
+	 ``囲む記号の開始記号の向きに注意'',
+	 東日本高専学会学会誌, Vol.24, pp.54-55, Apr. 2003.
+
+ \bibitem{lit:花子}
+	 清見 花子,
+	 ``区切りは半角のカンマとスペース'',
+	 世界高専学会論文誌, Vol.34, pp.1006-1009, Oct. 2005.
+
+ \bibitem{lit:次郎}
+	 台東 次郎,
+	 ``最後は半角ピリオド'',
+	 宇宙高専学会技術報告, Vol.3, pp.12-15, Dec. 2006.
+
+\end{thebibliography}
+
+\end{document}
